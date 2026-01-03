@@ -16,12 +16,12 @@ const pool = new Pool({
 
 // Log successful connection
 pool.on('connect', () => {
-  console.log('✓ Database connected');
+  console.log('Database connected');
 });
 
 // Log connection errors
 pool.on('error', (err) => {
-  console.error('✗ Unexpected connection pool error:', err);
+  console.error('Unexpected connection pool error:', err);
 });
 
 /**
@@ -31,11 +31,8 @@ pool.on('error', (err) => {
  * @returns {Promise} Query result
  */
 const query = async (text, params) => {
-  const start = Date.now();
   try {
     const result = await pool.query(text, params);
-    const duration = Date.now() - start;
-    console.log(`Executed query (${duration}ms)`, { text, params });
     return result;
   } catch (error) {
     console.error('Database query error:', error);

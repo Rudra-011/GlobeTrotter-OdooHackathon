@@ -17,15 +17,15 @@ const budgetModel = require('./models/budget.model');
  */
 const initializeDatabase = async () => {
   try {
-    console.log('Initializing database...');
+    console.log('Initializing database...');  // Changed to plain text
     await userModel.createTable();
     await tripModel.createTable();
     await tripStopModel.createTable();
     await activityModel.createTable();
     await budgetModel.createTable();
-    console.log('✓ Database initialized successfully');
+    console.log('Database initialized successfully');  // Changed to plain text
   } catch (error) {
-    console.error('✗ Failed to initialize database:', error);
+    console.error('Failed to initialize database:', error);  // Changed to plain text
     process.exit(1);
   }
 };
@@ -41,11 +41,11 @@ const startServer = async () => {
     // Start Express server
     const PORT = env.server.port;
     app.listen(PORT, () => {
-      console.log(`\n🌍 GlobeTrotter API running on http://localhost:${PORT}`);
-      console.log(`📝 Try: http://localhost:${PORT}/health\n`);
+      console.log(`GlobeTrotter API running on http://localhost:${PORT}`);  // Changed to plain text
+      console.log(`Try: http://localhost:${PORT}/health`);  // Changed to plain text
     });
   } catch (error) {
-    console.error('✗ Failed to start server:', error);
+    console.error('Failed to start server:', error);  // Changed to plain text
     process.exit(1);
   }
 };

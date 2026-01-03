@@ -25,9 +25,9 @@ const createTable = async () => {
 
   try {
     await db.query(query);
-    console.log('✓ Users table ready');
+    console.log('Ensuring users table exists');
   } catch (error) {
-    console.error('Error creating users table:', error);
+    console.error('Error ensuring users table exists:', error);
   }
 };
 

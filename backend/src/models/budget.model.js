@@ -24,9 +24,9 @@ const createTable = async () => {
 
   try {
     await db.query(query);
-    console.log('✓ Budgets table ready');
+    console.log('Ensuring budgets table exists');
   } catch (error) {
-    console.error('Error creating budgets table:', error);
+    console.error('Error ensuring budgets table exists:', error);
   }
 };
 

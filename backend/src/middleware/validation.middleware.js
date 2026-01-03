@@ -16,6 +16,7 @@ const handleValidationErrors = (req, res, next) => {
     errors.array().forEach(error => {
       formattedErrors[error.param] = error.msg;
     });
+    console.error('Validation errors:', formattedErrors);  // Added error logging
     return sendError(res, 422, 'Validation failed', formattedErrors);
   }
   next();

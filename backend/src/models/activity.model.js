@@ -29,9 +29,9 @@ const createTable = async () => {
 
   try {
     await db.query(query);
-    console.log('✓ Activities table ready');
+    console.log('Ensuring activities table exists');
   } catch (error) {
-    console.error('Error creating activities table:', error);
+    console.error('Error ensuring activities table exists:', error);
   }
 };
 

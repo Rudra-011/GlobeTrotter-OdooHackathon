@@ -27,9 +27,9 @@ const createTable = async () => {
 
   try {
     await db.query(query);
-    console.log('✓ Trips table ready');
+    console.log('Ensuring trips table exists');
   } catch (error) {
-    console.error('Error creating trips table:', error);
+    console.error('Error ensuring trips table exists:', error);
   }
 };
 

@@ -47,8 +47,7 @@ const signup = async (req, res) => {
         lastName: user.last_name
       },
       token
-    });
-  } catch (error) {
+    });    console.log('User created 201');  } catch (error) {
     console.error('Signup error:', error);
     sendError(res, 500, 'Error registering user');
   }
