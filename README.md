@@ -4,7 +4,7 @@ A production-grade travel planning web application built with the MERN stack (Re
 
 ## 🎯 Project Overview
 
-GlobeTrotter allows users to:
+GlobeTrotter allows users to mohit:
 - Create personalized multi-city trips with flexible date ranges
 - Build detailed itineraries with city stops and duration tracking
 - Add activities to each stop with cost and time estimates
