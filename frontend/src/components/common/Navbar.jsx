@@ -4,14 +4,18 @@
  */
 
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import '../../styles/navbar.css';
 
 export const Navbar = () => {
   const { isAuthenticated, user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const onProfilePage = location.pathname.startsWith('/profile');
+  const avatarSrc = user?.avatar || 'https://i.pravatar.cc/100?img=12';
 
   const handleLogout = () => {
     logout();
@@ -26,7 +30,7 @@ export const Navbar = () => {
         </Link>
 
         <div className="navbar-menu">
-          {isAuthenticated ? (
+          {isAuthenticated || onProfilePage ? (
             <>
               <Link to="/dashboard" className="nav-link">
                 Dashboard
@@ -34,18 +38,26 @@ export const Navbar = () => {
               <Link to="/create-trip" className="nav-link">
                 New Trip
               </Link>
+              <Link to="/profile" className="nav-link">
+                Profile
+              </Link>
               <div className="user-menu">
                 <button 
                   className="user-btn"
                   onClick={() => setMenuOpen(!menuOpen)}
                 >
-                  {user?.email}
+                  <img src={avatarSrc} alt="Profile" className="user-avatar" />
                 </button>
                 {menuOpen && (
                   <div className="dropdown-menu">
-                    <button onClick={handleLogout} className="dropdown-item">
-                      Logout
-                    </button>
+                    <Link to="/profile" className="dropdown-item" onClick={() => setMenuOpen(false)}>
+                      Profile
+                    </Link>
+                    {isAuthenticated && (
+                      <button onClick={handleLogout} className="dropdown-item">
+                        Logout
+                      </button>
+                    )}
                   </div>
                 )}
               </div>

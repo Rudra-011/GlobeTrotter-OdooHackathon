@@ -53,10 +53,22 @@
   color: #374151;
   font-weight: 500;
   transition: color 0.3s;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .user-btn:hover {
   color: #3b82f6;
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-menu {

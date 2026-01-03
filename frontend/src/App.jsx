@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import CreateTrip from './pages/CreateTrip';
 import Itinerary from './pages/Itinerary';
+import Profile from './pages/profile.jsx';
 import Navbar from './components/common/Navbar';
 import './styles/main.css';
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/create-trip" element={<CreateTrip />} />
         <Route path="/itinerary" element={<Itinerary />} />
         <Route path="/itinerary/:tripId" element={<Itinerary />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Dashboard />} />
       </Routes>
     </Router>
